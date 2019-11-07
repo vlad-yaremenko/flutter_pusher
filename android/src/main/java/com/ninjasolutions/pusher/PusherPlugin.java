@@ -103,7 +103,7 @@ public class PusherPlugin implements MethodCallHandler {
                 unbind(call, result);
                 break;
             case "trigger":
-                trigger(call, result);
+                // trigger(call, result);
                 break;
             default:
                 result.notImplemented();
@@ -371,6 +371,7 @@ public class PusherPlugin implements MethodCallHandler {
         }
     }
 
+    /* 
     private void trigger(MethodCall call, Result result) {
         try {
             final JSONObject json = new JSONObject(call.arguments.toString());
@@ -387,6 +388,7 @@ public class PusherPlugin implements MethodCallHandler {
             }
         }
     }
+    */
 }
 
 
