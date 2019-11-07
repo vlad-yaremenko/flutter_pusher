@@ -1,7 +1,7 @@
 name: flutter_pusher
 description: A Flutter plugin to listen to events sent through pusher. Wraps the native Java and Swift libraries
-version: 1.0.0
-author: Indoor Solutions <ninjas@indoor.solutions>
+version: 1.0.1
+author: Vlad Yaremenko <vladyaremenko95@gmail.com>
 homepage: https://github.com/ninjasolutions/flutter_pusher
 
 environment:
@@ -24,5 +24,5 @@ flutter:
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
   plugin:
-    androidPackage: com.ninjasolutions.pusher
+    androidPackage: com.vladyaremenko.pusher
     pluginClass: PusherPlugin
