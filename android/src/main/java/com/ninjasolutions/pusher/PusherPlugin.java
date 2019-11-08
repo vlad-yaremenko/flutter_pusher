@@ -103,7 +103,7 @@ public class PusherPlugin implements MethodCallHandler {
                 unbind(call, result);
                 break;
             case "trigger":
-                // trigger(call, result);
+//                trigger(call, result);
                 break;
             default:
                 result.notImplemented();
@@ -371,24 +371,22 @@ public class PusherPlugin implements MethodCallHandler {
         }
     }
 
-    /* 
-    private void trigger(MethodCall call, Result result) {
-        try {
-            final JSONObject json = new JSONObject(call.arguments.toString());
-            final String channelName = json.getString("channelName");
-            final String eventName = json.getString("eventName");
-
-            Channel channel = channels.get(channelName);
-
-            channel.trigger(eventName, "{}");
-        } catch (Exception e) {
-            if (isLoggingEnabled) {
-                Log.d(TAG, String.format("unbind exception: %s", e.getMessage()));
-                e.printStackTrace();
-            }
-        }
-    }
-    */
+//    private void trigger(MethodCall call, Result result) {
+//        try {
+//            final JSONObject json = new JSONObject(call.arguments.toString());
+//            final String channelName = json.getString("channelName");
+//            final String eventName = json.getString("eventName");
+//
+//            Channel channel = channels.get(channelName);
+//
+//            channel.trigger(eventName, "{}");
+//        } catch (Exception e) {
+//            if (isLoggingEnabled) {
+//                Log.d(TAG, String.format("unbind exception: %s", e.getMessage()));
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 }
 
 
