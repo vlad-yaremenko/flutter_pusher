@@ -297,8 +297,15 @@ class AuthRequestBuilder: AuthRequestBuilderProtocol {
             request.httpMethod = "POST"
             
             if (headers.values.contains("application/json")){
-                let jsonEncoder = JSONEncoder()
-                request.httpBody = try jsonEncoder.encode(["socket_id": socketID, "channel_name": channelName])
+                let parameters:[String:Any] = ["socket_id": socketID, "channel_name": channelName]
+                
+                print(parameters)
+                
+                do {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                } catch let error {
+                    print(error.localizedDescription)
+                }
             } else{
                 request.httpBody = "socket_id=\(socketID)&channel_name=\(channelName)".data(using: String.Encoding.utf8)
             }
@@ -306,6 +313,8 @@ class AuthRequestBuilder: AuthRequestBuilderProtocol {
             for (key, value) in headers {
                 request.addValue(value, forHTTPHeaderField: key)
             }
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
             return request
         } catch {
             if (SwiftPusherPlugin.isLoggingEnabled) {
@@ -315,6 +324,11 @@ class AuthRequestBuilder: AuthRequestBuilderProtocol {
         }
         
     }
+}
+
+struct Test: Codable {
+    let socket_id: String
+    let channel_name: String
 }
 
 class StreamHandler: NSObject, FlutterStreamHandler {
